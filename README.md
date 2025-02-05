@@ -3,9 +3,7 @@
 <h1 align="center">Crypto Tracker - Android App</h1>
 <p align="center"> <strong>Cryptocurrency Tracking App</strong> built with Jetpack Compose, WorkManager, Hilt, Room, and Firebase Firestore.</p>
 
-<p align="center">
-  <img src="https://your-image-url.com" alt="Crypto Tracker" width="600"/>
-</p>
+ ![Demo GIF](https://github.com/ocetin00/temp/raw/main/Screen_recording_20250205_023848.gif)
 
 ---
 
@@ -116,7 +114,6 @@ cd CryptoTracker
 ### 🏗 Prerequisites
 - **Android Studio LadyBug or newer**
 - **Minimum SDK 28 (Android 9.0)**
-- **Firebase Firestore & Authentication configured** *(Add `google-services.json`)*
 
 ### 🔧 Running the Project
 
