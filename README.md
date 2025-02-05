@@ -114,6 +114,7 @@ cd CryptoTracker
 ### 🏗 Prerequisites
 - **Android Studio LadyBug or newer**
 - **Minimum SDK 28 (Android 9.0)**
+- **Gradle version: 8.10.2, AGP 8.8.0**
 
 ### 🔧 Running the Project
 
