@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "com.oguzhan.cryptotracker"
-        minSdk = 31
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -74,15 +74,12 @@ dependencies {
     implementation(libs.google.android.material)
     implementation(libs.androidx.material3)
 
-    //implementation("androidx.camera:camera-mlkit-vision:1.1.0")
-    //implementation("com.google.mlkit:text-recognition:16.0.0")
-
-    implementation("androidx.compose.foundation:foundation:1.6.8")
+    implementation(libs.androidx.foundation)
     implementation(libs.androidx.material)
     implementation(libs.androidx.lifecycle.service)
     implementation(libs.androidx.hilt.common)
     implementation(libs.androidx.hilt.work)
-    ksp("androidx.hilt:hilt-compiler:1.2.0")
+    ksp(libs.androidx.hilt.hilt.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -127,10 +124,6 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.okhttp3.mockwebserver)
 
-    //Chucker
-    implementation(libs.chucker)
-    // debugImplementation(libs.chucker)
-    //releaseImplementation(libs.library.no.op)
 
     //DataStore
     implementation(libs.datastore)
@@ -152,7 +145,7 @@ dependencies {
 
     //Firebase
     implementation(platform(libs.firebase.bom))
-    implementation("com.firebaseui:firebase-ui-auth:8.0.2")
+    implementation(libs.firebase.ui.auth)
     implementation(libs.firebase.firestore)
 
     //Mockk
@@ -169,12 +162,11 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
-    implementation("androidx.work:work-runtime-ktx:2.10.0")
+    implementation(libs.androidx.work.runtime.ktx)
 
-    implementation("com.google.accompanist:accompanist-placeholder-material3:0.31.1-alpha")
+    implementation(libs.accompanist.placeholder.material3)
 
     //Sandwich for network responses
-    implementation("com.github.skydoves:sandwich:2.1.0")
-    //Sandwich for network responses
-    implementation("com.github.skydoves:sandwich-retrofit:2.1.0")
+    implementation(libs.sandwich)
+    implementation(libs.sandwich.retrofit)
 }

@@ -162,7 +162,7 @@ fun CryptoListScreenContent(
                             .padding(8.dp)
                     ) {
                         Column(Modifier.clickable {
-                            { onNavigateToDetail(coin.id) }
+                            onNavigateToDetail(coin.id)
                         }) {
                             HorizontalDivider(Modifier.padding(bottom = 5.dp))
                             Text(

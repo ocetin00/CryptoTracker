@@ -323,5 +323,3 @@ fun CoinDetailShimmer(modifier: Modifier = Modifier) {
 
 
 
-
-
