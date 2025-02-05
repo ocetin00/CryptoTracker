@@ -3,7 +3,7 @@
 <h1 align="center">Crypto Tracker - Android App</h1>
 <p align="center"> <strong>Cryptocurrency Tracking App</strong> built with Jetpack Compose, WorkManager, Hilt, Room, and Firebase Firestore.</p>
 
- ![Demo GIF]([https://github.com/ocetin00/temp/blob/main/Screen_recording_20250205_023848.mp4](https://github.com/ocetin00/temp/blob/main/Screen_recording_20250205_023848-2.gif))
+ ![Demo GIF](https://github.com/ocetin00/temp/blob/main/Screen_recording_20250205_023848-2.gif)
 
 ---
 
