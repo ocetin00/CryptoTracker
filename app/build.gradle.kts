@@ -169,4 +169,8 @@ dependencies {
     //Sandwich for network responses
     implementation(libs.sandwich)
     implementation(libs.sandwich.retrofit)
+
+    //chucker
+    debugImplementation(libs.chucker)
+
 }

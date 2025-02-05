@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
+import androidx.work.WorkManager
 import com.oguzhan.cryptotracker.common.schedulePriceUpdates
 import com.oguzhan.cryptotracker.ui.screen.auth.Auth
 import com.oguzhan.cryptotracker.ui.screen.coin.Main
@@ -45,5 +46,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("MainActivity", "WorkManager cancelled")
+        WorkManager.getInstance(this).cancelUniqueWork("price_update_work")
     }
 }

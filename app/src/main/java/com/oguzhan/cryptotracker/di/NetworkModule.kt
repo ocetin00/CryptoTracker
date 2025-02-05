@@ -1,11 +1,14 @@
 package com.oguzhan.cryptotracker.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.oguzhan.cryptotracker.data.remote.BASE_URL
 import com.oguzhan.cryptotracker.data.remote.CoinApi
 import com.skydoves.sandwich.retrofit.adapters.ApiResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,7 +28,9 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(
+        @ApplicationContext context: Context
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
@@ -34,6 +39,7 @@ object NetworkModule {
                     .build()
                 chain.proceed(request)
             }
+            .addInterceptor(ChuckerInterceptor(context))
             .addInterceptor(logging)
             .build()
     }
