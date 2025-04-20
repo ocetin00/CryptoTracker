@@ -1,6 +1,6 @@
 package com.oguzhan.cryptotracker.mapper
 
-import com.oguzhan.cryptotracker.data.local.CoinEntity
+import com.oguzhan.shared.core.data.local.CoinEntity
 import com.oguzhan.cryptotracker.data.remote.model.CoinRemoteModel
 import com.oguzhan.cryptotracker.domain.model.CoinUiModel
 

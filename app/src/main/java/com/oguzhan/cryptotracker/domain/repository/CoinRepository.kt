@@ -1,6 +1,6 @@
 package com.oguzhan.cryptotracker.domain.repository
 
-import com.oguzhan.cryptotracker.data.local.CoinEntity
+import com.oguzhan.shared.core.data.local.CoinEntity
 import com.oguzhan.cryptotracker.data.remote.model.CoinDetailRemoteModel
 import com.oguzhan.cryptotracker.data.remote.model.CoinRemoteModel
 import com.oguzhan.cryptotracker.data.remote.model.FavoriteCoinFirebaseModel

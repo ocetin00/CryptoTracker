@@ -4,7 +4,7 @@ agp = "8.8.0"
 firebaseUiAuth = "8.0.2"
 foundation = "1.6.8"
 materialVersion = "1.7.7"
-kotlin = "2.1.0"
+kotlin = "2.1.10"
 agptest = "8.8.0"
 coreKtx = "1.15.0"
 coreTesting = "2.2.0"
@@ -23,6 +23,8 @@ ksp = "2.1.0-1.0.29"
 coroutines = "1.9.0"
 constraintlayoutCompose = "1.1.0"
 koin-bom = "4.0.3"
+serialization = "2.1.20"
+serializationJson = "1.8.1"
 
 #Retrofit
 retrofit = "2.9.0"
@@ -37,7 +39,7 @@ libraryNoOp = "4.1.0"
 
 
 #Room
-room = "2.6.1"
+androidx-room = "2.7.0"
 
 #Paging
 paging = "3.3.5"
@@ -70,7 +72,6 @@ turbine = "1.0.0"
 #Coil
 coil = "2.6.0"
 
-serialization = "1.7.2"
 lifecycleService = "2.8.7"
 workRuntimeKtx = "2.10.0"
 kotlinStdlib = "2.1.0"
@@ -103,6 +104,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 #Koin
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
 koin-core = { module = "io.insert-koin:koin-core" }
+
 koin-android = { module = "io.insert-koin:koin-android" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
@@ -116,7 +118,7 @@ koin-test = { module = "io.insert-koin:koin-test" }
 
 
 #Serialization
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
 #Coroutines
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 #Material3
@@ -136,10 +138,13 @@ androidx-lifecycle-viewModelCompose = { module = "androidx.lifecycle:lifecycle-v
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-compose" }
 #Navigation
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+
 #Room
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
-androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
-androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
+
+
 #Paging
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
@@ -194,5 +199,7 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "androidx-room" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

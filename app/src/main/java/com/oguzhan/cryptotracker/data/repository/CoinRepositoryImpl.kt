@@ -1,8 +1,8 @@
 package com.oguzhan.cryptotracker.data.repository
 
 import android.util.Log
-import com.oguzhan.cryptotracker.data.local.CoinDao
-import com.oguzhan.cryptotracker.data.local.CoinEntity
+import com.oguzhan.shared.core.data.local.CoinDao
+import com.oguzhan.shared.core.data.local.CoinEntity
 import com.oguzhan.cryptotracker.data.remote.CoinApi
 import com.oguzhan.cryptotracker.data.remote.FirebaseFireStoreApi
 import com.oguzhan.cryptotracker.data.remote.model.CoinDetailRemoteModel
