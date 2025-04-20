@@ -36,9 +36,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.oguzhan.cryptotracker.data.remote.model.FavoriteCoinUiModel
-import com.oguzhan.cryptotracker.ui.screen.favorite.FavoriteScreenEffect
-import com.oguzhan.cryptotracker.ui.screen.favorite.FavoriteScreenState
-import com.oguzhan.cryptotracker.ui.screen.favorite.FavoriteViewModel
 import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3Api::class)

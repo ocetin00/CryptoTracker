@@ -1,6 +1,6 @@
 package com.oguzhan.cryptotracker.ui.screen.coin
 
-import androidx.hilt.navigation.compose.hiltViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -9,7 +9,9 @@ import com.oguzhan.cryptotracker.ui.screen.auth.Auth
 import com.oguzhan.cryptotracker.ui.screen.coin.detail.CoinDetailScreenRoute
 import com.oguzhan.cryptotracker.ui.screen.coin.favourite.FavoriteScreenRoute
 import com.oguzhan.cryptotracker.ui.screen.coin.list.CryptoListScreenRoute
+import com.oguzhan.cryptotracker.ui.screen.coin.list.CryptoListScreenViewModel
 import kotlinx.serialization.Serializable
+import org.koin.androidx.compose.koinViewModel
 
 //Parent Route for Main
 @Serializable
@@ -29,9 +31,10 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
     navigation<Main>(
         startDestination = CryptoList
     ) {
+
         composable<CryptoList> {
             CryptoListScreenRoute(
-                viewModel = hiltViewModel(),
+                viewModel = koinViewModel(),
                 onNavigateToDetail = { id ->
                     navController.navigate(
                         CryptoListDetail(id)
@@ -50,12 +53,12 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
                 onNavigateToBack = {
                     navController.popBackStack()
                 },
-                viewModel = hiltViewModel(),
+                viewModel = koinViewModel(),
             )
         }
         composable<FavoriteCoin> {
             FavoriteScreenRoute(
-                viewModel = hiltViewModel(),
+                viewModel = koinViewModel(),
                 onNavigateToBack = {
                     navController.popBackStack()
                 }

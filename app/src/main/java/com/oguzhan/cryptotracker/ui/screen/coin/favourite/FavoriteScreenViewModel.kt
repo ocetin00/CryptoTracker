@@ -1,4 +1,4 @@
-package com.oguzhan.cryptotracker.ui.screen.favorite
+package com.oguzhan.cryptotracker.ui.screen.coin.favourite
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -7,7 +7,6 @@ import com.oguzhan.cryptotracker.common.Result
 import com.oguzhan.cryptotracker.data.remote.model.FavoriteCoinUiModel
 import com.oguzhan.cryptotracker.domain.usecase.GetFavoriteCoinListUseCase
 import com.oguzhan.cryptotracker.domain.usecase.SetFavoriteCoinUseCase
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -28,7 +27,6 @@ sealed interface FavoriteScreenEffect {
     data class ShowToast(val message: String) : FavoriteScreenEffect
 }
 
-@HiltViewModel
 class FavoriteViewModel @Inject constructor(
     private val getFavoriteCoinListUseCase: GetFavoriteCoinListUseCase,
     private val setFavoriteCoinUseCase: SetFavoriteCoinUseCase

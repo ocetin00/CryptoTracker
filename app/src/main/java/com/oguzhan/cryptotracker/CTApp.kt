@@ -1,26 +1,25 @@
 package com.oguzhan.cryptotracker
 
 import android.app.Application
-import androidx.hilt.work.HiltWorkerFactory
-import androidx.work.Configuration
 import com.google.firebase.FirebaseApp
-import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
+import com.oguzhan.cryptotracker.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.workmanager.koin.workManagerFactory
+import org.koin.core.context.startKoin
+import org.koin.core.context.startKoin
 
-@HiltAndroidApp
-class CTApp : Application(), Configuration.Provider {
-
-    @Inject
-    lateinit var workerFactory: HiltWorkerFactory
-
-    override val workManagerConfiguration: Configuration
-        get() = Configuration.Builder()
-            .setMinimumLoggingLevel(android.util.Log.DEBUG)
-            .setWorkerFactory(workerFactory)
-            .build()
+class CTApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        FirebaseApp.initializeApp(this)
+
+        startKoin {
+            androidContext(this@CTApp)
+            androidLogger()
+            workManagerFactory()
+            modules(appModule)
+        }
+
     }
 }

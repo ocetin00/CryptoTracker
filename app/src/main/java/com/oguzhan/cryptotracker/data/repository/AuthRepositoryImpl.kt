@@ -7,7 +7,7 @@ import com.oguzhan.cryptotracker.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject constructor(private val firebaseAuthApi: FirebaseAuthApi) :
+class AuthRepositoryImpl constructor(private val firebaseAuthApi: FirebaseAuthApi) :
     AuthRepository {
     override fun login(email: String, password: String): Flow<Result<FirebaseUser>> {
         return firebaseAuthApi.login(email, password)

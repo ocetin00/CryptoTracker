@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.cryptotracker.di
 
 import com.oguzhan.cryptotracker.data.local.CoinDao
@@ -33,4 +34,4 @@ object RepositoryModule {
     ): CoinRepository {
         return CoinRepositoryImpl(coinApi, coinDao, firebaseFireStoreApi)
     }
-}
+}*/

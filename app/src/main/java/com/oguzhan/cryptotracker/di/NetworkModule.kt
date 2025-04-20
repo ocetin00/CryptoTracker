@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.cryptotracker.di
 
 import android.content.Context
@@ -59,4 +60,4 @@ object NetworkModule {
             .create(CoinApi::class.java)
     }
 
-}
+}*/

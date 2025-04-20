@@ -8,7 +8,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
-class FirebaseAuthApi @Inject constructor(private val firebaseAuth: FirebaseAuth) {
+class FirebaseAuthApi constructor(private val firebaseAuth: FirebaseAuth) {
 
     fun isLoggedIn(): Boolean {
         return firebaseAuth.currentUser != null

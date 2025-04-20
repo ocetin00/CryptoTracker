@@ -8,7 +8,6 @@ import com.oguzhan.cryptotracker.domain.model.CoinUiModel
 import com.oguzhan.cryptotracker.domain.repository.AuthRepository
 import com.oguzhan.cryptotracker.domain.usecase.GetCoinListUseCases
 import com.oguzhan.cryptotracker.domain.usecase.SearchCoinListUseCases
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -32,7 +31,6 @@ sealed interface CryptoListScreenEffect {
 }
 
 
-@HiltViewModel
 class CryptoListScreenViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val getCoinListUseCases: GetCoinListUseCases,

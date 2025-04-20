@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.google.services)
     alias(libs.plugins.compose.compiler)
     id("jacoco")
@@ -77,9 +76,6 @@ dependencies {
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.material)
     implementation(libs.androidx.lifecycle.service)
-    implementation(libs.androidx.hilt.common)
-    implementation(libs.androidx.hilt.work)
-    ksp(libs.androidx.hilt.hilt.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -105,7 +101,6 @@ dependencies {
 
     //Navigation
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.hilt.navigation.compose)
 
     //Room
     implementation(libs.androidx.room.runtime)
@@ -128,16 +123,14 @@ dependencies {
     //DataStore
     implementation(libs.datastore)
 
-    //Hilt
-    implementation(libs.hilt.android)
-    kspAndroidTest(libs.hilt.compiler)
-    kspTest(libs.hilt.compiler)
-    ksp(libs.hilt.compiler)
 
-
-
-    testImplementation(libs.hilt.android.testing)
-    androidTestImplementation(libs.hilt.android.testing)
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.workmanager)
+    implementation(libs.koin.androidx.navigation)
+    implementation(libs.koin.test)
 
 
     //Coil
