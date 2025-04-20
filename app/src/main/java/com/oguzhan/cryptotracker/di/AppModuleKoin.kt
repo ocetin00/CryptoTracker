@@ -1,20 +1,16 @@
 package com.oguzhan.cryptotracker.di
 
-import android.content.Context
 import androidx.room.Room
 import androidx.work.Configuration
-import androidx.work.WorkManager
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.oguzhan.cryptotracker.MainViewModel
 import com.oguzhan.cryptotracker.common.PriceUpdateWorker
-import com.oguzhan.cryptotracker.data.local.AppDatabase
-import com.oguzhan.cryptotracker.data.local.CoinDao
+import com.oguzhan.shared.core.data.local.AppDatabase
+import com.oguzhan.shared.core.data.local.CoinDao
 import com.oguzhan.cryptotracker.data.remote.BASE_URL
 import com.oguzhan.cryptotracker.data.remote.CoinApi
 import com.oguzhan.cryptotracker.data.remote.FirebaseAuthApi

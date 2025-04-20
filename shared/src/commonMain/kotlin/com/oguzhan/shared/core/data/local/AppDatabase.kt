@@ -1,4 +1,4 @@
-package com.oguzhan.cryptotracker.data.local
+package com.oguzhan.shared.core.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
