@@ -14,13 +14,17 @@ import com.oguzhan.cryptotracker.ui.screen.auth.Auth
 import com.oguzhan.cryptotracker.ui.screen.coin.Main
 import com.oguzhan.cryptotracker.ui.screen.navigation.CtNavHost
 import com.oguzhan.cryptotracker.ui.theme.CryptoTrackerTheme
+import com.oguzhan.shared.Greeting
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 
 class MainActivity : ComponentActivity() {
     private val viewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+        Log.i("Login Activity", "Hello from shared module: " + (Greeting().greet()))
+
 
         installSplashScreen().setKeepOnScreenCondition {
             //show splash until isLoggedIn is not null
