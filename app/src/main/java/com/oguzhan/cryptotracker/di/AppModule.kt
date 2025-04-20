@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.cryptotracker.di
 
 
@@ -11,11 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.oguzhan.cryptotracker.data.local.AppDatabase
 import com.oguzhan.cryptotracker.data.local.CoinDao
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 
@@ -56,6 +52,4 @@ object AppModule {
     @Singleton
     fun provideDevCtrlWorkManager(@ApplicationContext context: Context): WorkManager =
         WorkManager.getInstance(context)
-
-
-}
+}*/

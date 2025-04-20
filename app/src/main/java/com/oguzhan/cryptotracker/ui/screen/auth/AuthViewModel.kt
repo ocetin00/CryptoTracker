@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.oguzhan.cryptotracker.common.Result
 import com.oguzhan.cryptotracker.domain.repository.AuthRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -34,7 +33,6 @@ sealed interface AuthEffect {
     data class ShowSnackBar(val message: String) : AuthEffect
 }
 
-@HiltViewModel
 class AuthViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {

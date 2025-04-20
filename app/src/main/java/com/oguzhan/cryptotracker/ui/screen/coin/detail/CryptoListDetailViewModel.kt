@@ -10,7 +10,6 @@ import com.oguzhan.cryptotracker.domain.repository.CoinRepository
 import com.oguzhan.cryptotracker.domain.usecase.GetCoinByIdUseCase
 import com.oguzhan.cryptotracker.domain.usecase.SetFavoriteCoinUseCase
 import com.oguzhan.cryptotracker.ui.screen.coin.CryptoListDetail
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -39,10 +38,8 @@ sealed interface CryptoListDetailScreenEffect {
 }
 
 
-@HiltViewModel
 class CryptoListDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val coinRepository: CoinRepository,
     private val getCoinByIdUseCase: GetCoinByIdUseCase,
     private val setFavoriteCoinUseCase: SetFavoriteCoinUseCase,
 ) :

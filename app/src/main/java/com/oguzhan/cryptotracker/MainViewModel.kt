@@ -2,7 +2,6 @@ package com.oguzhan.cryptotracker
 
 import androidx.lifecycle.ViewModel
 import com.oguzhan.cryptotracker.data.repository.AuthRepositoryImpl
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,8 +14,7 @@ data class MainState(
     val showSplash: Boolean = true
 )
 
-@HiltViewModel
-class MainViewModel @Inject constructor(private val authRepositoryImpl: AuthRepositoryImpl) : ViewModel() {
+class MainViewModel constructor(private val authRepositoryImpl: AuthRepositoryImpl) : ViewModel() {
 
     private val _mainState = MutableStateFlow(MainState())
     val mainState: StateFlow<MainState> = _mainState.asStateFlow()

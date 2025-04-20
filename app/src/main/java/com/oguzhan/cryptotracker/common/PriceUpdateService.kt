@@ -2,7 +2,6 @@ package com.oguzhan.cryptotracker.common
 
 import android.content.Context
 import android.util.Log
-import androidx.hilt.work.HiltWorker
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -15,14 +14,11 @@ import androidx.work.WorkerParameters
 import com.oguzhan.cryptotracker.common.Result
 import com.oguzhan.cryptotracker.domain.repository.CoinRepository
 import com.skydoves.sandwich.isSuccess
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedInject
 import java.util.concurrent.TimeUnit
 
-@HiltWorker
-class PriceUpdateWorker @AssistedInject constructor(
-    @Assisted appContext: Context,
-    @Assisted workerParams: WorkerParameters,
+class PriceUpdateWorker constructor(
+    appContext: Context,
+    workerParams: WorkerParameters,
     private var coinRepository: CoinRepository
 ) : CoroutineWorker(appContext, workerParams) {
 

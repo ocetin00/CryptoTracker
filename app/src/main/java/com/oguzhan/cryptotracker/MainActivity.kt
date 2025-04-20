@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
@@ -15,12 +14,12 @@ import com.oguzhan.cryptotracker.ui.screen.auth.Auth
 import com.oguzhan.cryptotracker.ui.screen.coin.Main
 import com.oguzhan.cryptotracker.ui.screen.navigation.CtNavHost
 import com.oguzhan.cryptotracker.ui.theme.CryptoTrackerTheme
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-@AndroidEntryPoint
+
 class MainActivity : ComponentActivity() {
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         installSplashScreen().setKeepOnScreenCondition {
