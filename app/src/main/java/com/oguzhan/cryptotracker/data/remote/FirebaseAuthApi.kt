@@ -2,7 +2,7 @@ package com.oguzhan.cryptotracker.data.remote
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.skydoves.sandwich.ApiResponse
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow

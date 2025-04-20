@@ -6,7 +6,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.viewModelScope
 import app.cash.turbine.test
 import com.oguzhan.cryptotracker.TestDispatcherRule
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.oguzhan.cryptotracker.domain.model.CoinUiModel
 import com.oguzhan.cryptotracker.domain.repository.AuthRepository
 import com.oguzhan.cryptotracker.domain.usecase.GetCoinListUseCases

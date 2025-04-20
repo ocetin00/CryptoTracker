@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
 import com.oguzhan.cryptotracker.domain.repository.CoinRepository
 import com.oguzhan.cryptotracker.domain.usecase.GetCoinByIdUseCase

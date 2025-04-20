@@ -3,7 +3,7 @@ package com.oguzhan.cryptotracker.ui.screen.coin.favourite
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.oguzhan.cryptotracker.data.remote.model.FavoriteCoinUiModel
 import com.oguzhan.cryptotracker.domain.usecase.GetFavoriteCoinListUseCase
 import com.oguzhan.cryptotracker.domain.usecase.SetFavoriteCoinUseCase

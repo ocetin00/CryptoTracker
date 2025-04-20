@@ -1,4 +1,4 @@
-package com.oguzhan.cryptotracker.common
+package com.oguzhan.shared.core
 
 sealed class Result<out T> {
     data class Success<out T>(val data: T) : Result<T>()

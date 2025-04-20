@@ -1,7 +1,7 @@
 package com.oguzhan.cryptotracker.domain.repository
 
 import com.google.firebase.auth.FirebaseUser
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
