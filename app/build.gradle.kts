@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.oguzhan.cryptotracker"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.oguzhan.cryptotracker"
@@ -62,6 +62,9 @@ android {
 tasks.register("testClasses")
 
 dependencies {
+
+    implementation(project(":shared"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
