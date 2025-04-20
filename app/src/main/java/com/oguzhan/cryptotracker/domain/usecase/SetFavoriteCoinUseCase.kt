@@ -1,6 +1,6 @@
 package com.oguzhan.cryptotracker.domain.usecase
 
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.oguzhan.cryptotracker.domain.repository.CoinRepository
 import com.skydoves.sandwich.messageOrNull
 import com.skydoves.sandwich.suspendOnFailure

@@ -1,6 +1,6 @@
 package com.oguzhan.cryptotracker.domain.usecase
 
-import com.oguzhan.cryptotracker.common.Result
+import com.oguzhan.shared.core.Result
 import com.oguzhan.cryptotracker.data.remote.model.FavoriteCoinUiModel
 import com.oguzhan.cryptotracker.domain.model.FavoriteCoinMapper.toUiModel
 import com.oguzhan.cryptotracker.domain.repository.CoinRepository
