@@ -3,12 +3,12 @@ package com.oguzhan.cryptotracker.di
 
 import com.oguzhan.cryptotracker.data.local.CoinDao
 import com.oguzhan.cryptotracker.data.remote.CoinApi
-import com.oguzhan.cryptotracker.data.remote.FirebaseAuthApi
-import com.oguzhan.cryptotracker.data.remote.FirebaseFireStoreApi
+import com.oguzhan.cryptotracker.data.firebase.FirebaseAuthApi
+import com.oguzhan.cryptotracker.data.firebase.FirebaseFireStoreApi
 import com.oguzhan.cryptotracker.data.repository.AuthRepositoryImpl
 import com.oguzhan.cryptotracker.data.repository.CoinRepositoryImpl
 import com.oguzhan.cryptotracker.domain.repository.AuthRepository
-import com.oguzhan.cryptotracker.domain.repository.CoinRepository
+import com.oguzhan.shared.core.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

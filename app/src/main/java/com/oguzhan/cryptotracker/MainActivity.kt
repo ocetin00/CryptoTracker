@@ -10,10 +10,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
 import androidx.work.WorkManager
 import com.oguzhan.cryptotracker.common.schedulePriceUpdates
-import com.oguzhan.cryptotracker.ui.screen.auth.Auth
-import com.oguzhan.cryptotracker.ui.screen.coin.Main
-import com.oguzhan.cryptotracker.ui.screen.navigation.CtNavHost
-import com.oguzhan.cryptotracker.ui.theme.CryptoTrackerTheme
+import com.oguzhan.shared.ui.screen.auth.Auth
+import com.oguzhan.shared.ui.screen.coin.Main
+import com.oguzhan.shared.ui.screen.navigation.CtNavHost
+import com.oguzhan.shared.ui.theme.CryptoTrackerTheme
 import com.oguzhan.shared.Greeting
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

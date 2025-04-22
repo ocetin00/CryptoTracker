@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.kotlin.multiplatform.library)
-
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.google.services)
 }
 
 kotlin {
@@ -62,12 +62,12 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-               // implementation(libs.kotlinx.serialization.json)
+                // implementation(libs.kotlinx.serialization.json)
                 // Add KMP dependencies here
 
                 //koin
                 implementation(project.dependencies.platform(libs.koin.bom))
-                
+
                 implementation(libs.koin.compose)
                 implementation(libs.koin.compose.viewmodel)
                 implementation(libs.koin.compose.viewmodel.navigation)
@@ -76,6 +76,20 @@ kotlin {
 
                 //Room
                 implementation(libs.androidx.room.runtime)
+
+                //Kotlin
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.negotiation)
+                implementation(libs.kotlinx.coroutines.core)
+
+                //Sandwich for network responses
+                implementation(libs.sandwich)
+                implementation(libs.sandwich.ktor)
+
+                //Firebase
+                implementation(project.dependencies.platform(libs.firebase.bom))
+                implementation("dev.gitlive:firebase-auth:2.1.0")
+                implementation("dev.gitlive:firebase-firestore:2.1.0")
             }
         }
 
@@ -102,6 +116,11 @@ kotlin {
 
                 implementation(libs.androidx.room.paging)
 
+                //ktor
+                implementation(libs.ktor.client.okhttp)
+
+                //coroutines
+                implementation(libs.kotlinx.coroutines.android)
 
 
             }
@@ -122,6 +141,11 @@ kotlin {
                 // part of KMP’s default source set hierarchy. Note that this source set depends
                 // on common by default and will correctly pull the iOS artifacts of any
                 // KMP dependencies declared in commonMain.
+
+                //ktor
+                implementation(libs.ktor.client.darwin)
+
+
             }
         }
     }

@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.google.services)
     alias(libs.plugins.compose.compiler)
     id("jacoco")
     kotlin("plugin.serialization") version "2.0.20"
@@ -128,10 +127,7 @@ dependencies {
     //Coil
     implementation(libs.coil.kt.compose)
 
-    //Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.ui.auth)
-    implementation(libs.firebase.firestore)
+
 
     //Mockk
     testImplementation(libs.mockk)
@@ -150,10 +146,6 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
 
     implementation(libs.accompanist.placeholder.material3)
-
-    //Sandwich for network responses
-    implementation(libs.sandwich)
-    implementation(libs.sandwich.retrofit)
 
     //chucker
     debugImplementation(libs.chucker)

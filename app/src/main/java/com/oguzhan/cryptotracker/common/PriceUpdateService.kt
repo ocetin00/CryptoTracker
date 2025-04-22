@@ -9,7 +9,7 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.oguzhan.cryptotracker.domain.repository.CoinRepository
+import com.oguzhan.shared.core.domain.repository.CoinRepository
 import com.skydoves.sandwich.isSuccess
 import java.util.concurrent.TimeUnit
 
