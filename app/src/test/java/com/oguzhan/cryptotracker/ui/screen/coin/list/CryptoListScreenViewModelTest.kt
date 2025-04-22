@@ -3,14 +3,15 @@ package com.oguzhan.cryptotracker.ui.screen.coin.list
 
 import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.viewModelScope
 import app.cash.turbine.test
 import com.oguzhan.cryptotracker.TestDispatcherRule
 import com.oguzhan.shared.core.Result
-import com.oguzhan.cryptotracker.domain.model.CoinUiModel
+import com.oguzhan.shared.core.domain.model.CoinUiModel
 import com.oguzhan.cryptotracker.domain.repository.AuthRepository
 import com.oguzhan.cryptotracker.domain.usecase.GetCoinListUseCases
 import com.oguzhan.cryptotracker.domain.usecase.SearchCoinListUseCases
+import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenEffect
+import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.every
@@ -18,10 +19,7 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.mockkStatic
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest

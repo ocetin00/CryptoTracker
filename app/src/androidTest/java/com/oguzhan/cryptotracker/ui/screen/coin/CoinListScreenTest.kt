@@ -4,6 +4,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.oguzhan.cryptotracker.domain.usecase.SearchCoinListUseCases
 import com.oguzhan.cryptotracker.ui.screen.coin.list.*
+import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenContent
+import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenState
+import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk

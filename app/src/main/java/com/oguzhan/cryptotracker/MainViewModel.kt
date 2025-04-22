@@ -1,7 +1,7 @@
 package com.oguzhan.cryptotracker
 
 import androidx.lifecycle.ViewModel
-import com.oguzhan.cryptotracker.data.repository.AuthRepositoryImpl
+import com.oguzhan.shared.core.data.repository.AuthRepositoryImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

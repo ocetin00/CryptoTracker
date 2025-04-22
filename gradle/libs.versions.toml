@@ -78,6 +78,7 @@ kotlinStdlib = "2.1.0"
 kotlinTest = "2.1.0"
 runner = "1.5.2"
 core = "1.5.0"
+ktor = "3.1.2"
 
 
 [libraries]
@@ -100,6 +101,12 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+#Ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+
 
 #Koin
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
@@ -121,6 +128,9 @@ koin-test = { module = "io.insert-koin:koin-test" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
 #Coroutines
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
 #Material3
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-material-iconsExtended = { module = "androidx.compose.material:material-icons-extended" }
@@ -151,7 +161,7 @@ androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", v
 
 #Retrofit
 sandwich = { module = "com.github.skydoves:sandwich", version.ref = "sandwich" }
-sandwich-retrofit = { module = "com.github.skydoves:sandwich-retrofit", version.ref = "sandwichRetrofit" }
+sandwich-ktor = { module = "com.github.skydoves:sandwich-ktor", version.ref = "sandwichRetrofit" }
 square-retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
 okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
