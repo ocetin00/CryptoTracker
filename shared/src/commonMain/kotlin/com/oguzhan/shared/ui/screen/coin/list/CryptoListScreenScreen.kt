@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.shared.ui.screen.coin.list
 
 import android.widget.Toast
@@ -233,4 +234,4 @@ fun CryptoListShimmer(modifier: Modifier = Modifier) {
             }
         }
     }
-}
+}*/

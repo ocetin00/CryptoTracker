@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.shared.core.domain.usecase
 
 import com.oguzhan.cryptotracker.domain.model.FavoriteCoinMapper.toUiModel
@@ -22,4 +23,4 @@ class GetFavoriteCoinListUseCase constructor(
             }
         }
 
-}
+}*/

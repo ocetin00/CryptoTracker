@@ -1,6 +1,6 @@
+/*
 package com.oguzhan.shared.ui.screen.coin
 
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -65,4 +65,4 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
             )
         }
     }
-}
+}*/

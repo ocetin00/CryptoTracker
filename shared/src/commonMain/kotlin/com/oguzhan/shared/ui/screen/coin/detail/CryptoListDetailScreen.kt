@@ -1,6 +1,6 @@
+/*
 package com.oguzhan.shared.ui.screen.coin.detail
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,10 +15,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material.icons.filled.ArrowDownward
-import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -56,7 +52,6 @@ import com.oguzhan.shared.core.domain.model.CoinDetailUiModel
 import kotlinx.coroutines.flow.collectLatest
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CoinDetailScreenRoute(
     onNavigateToBack: () -> Unit,
@@ -322,3 +317,4 @@ fun CoinDetailShimmer(modifier: Modifier = Modifier) {
 
 
 
+*/

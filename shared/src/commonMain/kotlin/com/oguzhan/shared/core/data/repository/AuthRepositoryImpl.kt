@@ -1,9 +1,10 @@
+/*
 package com.oguzhan.shared.core.data.repository
 
-import com.google.firebase.auth.FirebaseUser
 import com.oguzhan.shared.core.Result
-import com.oguzhan.cryptotracker.data.firebase.FirebaseAuthApi
+import com.oguzhan.shared.core.data.firebase.FirebaseAuthApi
 import com.oguzhan.shared.core.domain.repository.AuthRepository
+import dev.gitlive.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 
 class AuthRepositoryImpl constructor(private val firebaseAuthApi: FirebaseAuthApi) :
@@ -20,7 +21,7 @@ class AuthRepositoryImpl constructor(private val firebaseAuthApi: FirebaseAuthAp
         return firebaseAuthApi.isLoggedIn()
     }
 
-    override fun signOut(): Boolean {
+    override suspend fun signOut(): Boolean {
         return firebaseAuthApi.signOut()
     }
-}
+}*/

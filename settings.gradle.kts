@@ -13,14 +13,18 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
-        google()
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
         mavenCentral()
-        maven {  url = uri("https://plugins.gradle.org/m2/") }
     }
 }
 
+
 rootProject.name = "CryptoTracker"
-include(":app")
 include(":shared")

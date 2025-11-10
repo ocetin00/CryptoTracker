@@ -1,11 +1,11 @@
+/*
 package com.oguzhan.shared.ui.screen.coin.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.toRoute
+import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
 import com.oguzhan.shared.core.Result
-import com.oguzhan.shared.core.domain.model.CoinDetailUiModel
 import com.oguzhan.shared.core.domain.usecase.GetCoinByIdUseCase
 import com.oguzhan.shared.core.domain.usecase.SetFavoriteCoinUseCase
 import com.oguzhan.shared.ui.screen.coin.CryptoListDetail
@@ -21,7 +21,6 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 data class CryptoListDetailScreenState(
@@ -37,7 +36,7 @@ sealed interface CryptoListDetailScreenEffect {
 }
 
 
-class CryptoListDetailViewModel @Inject constructor(
+class CryptoListDetailViewModel  constructor(
     savedStateHandle: SavedStateHandle,
     private val getCoinByIdUseCase: GetCoinByIdUseCase,
     private val setFavoriteCoinUseCase: SetFavoriteCoinUseCase,
@@ -160,4 +159,4 @@ class CryptoListDetailViewModel @Inject constructor(
         }
 
     }
-}
+}*/

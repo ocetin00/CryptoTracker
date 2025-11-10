@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.shared.ui.screen.coin.list
 
 import android.util.Log
@@ -102,4 +103,4 @@ class CryptoListScreenViewModel @Inject constructor(
             }
         }
     }
-}
+}*/

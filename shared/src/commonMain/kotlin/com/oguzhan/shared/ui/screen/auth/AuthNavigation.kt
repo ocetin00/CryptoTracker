@@ -1,12 +1,14 @@
+/*
 package com.oguzhan.shared.ui.screen.auth
 
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.oguzhan.shared.ui.screen.coin.Main
 import kotlinx.serialization.Serializable
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 //Parent Route for Auth
 @Serializable
@@ -27,7 +29,7 @@ fun NavGraphBuilder.authNavGraph(navController: NavController) {
             val parentEntry = navController.getBackStackEntry<Auth>()
             //TODO: should be shared
             LoginScreenRoute(
-                viewModel = koinViewModel(),
+                viewModel =  viewModel { AuthViewModel() },
                 onNavigateSignUp = { navController.navigate(Register) },
                 onNavigateToMain = {
                     navController.navigate(Main) {
@@ -45,4 +47,4 @@ fun NavGraphBuilder.authNavGraph(navController: NavController) {
             )
         }
     }
-}
+}*/

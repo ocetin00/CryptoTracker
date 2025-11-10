@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.shared.core.domain.usecase
 
 import com.oguzhan.shared.core.domain.model.CoinUiModel
@@ -11,4 +12,4 @@ class SearchCoinListUseCases constructor(
         return coinRepository.searchCoins(query).map { it.toUiModel() }
     }
 
-}
+}*/

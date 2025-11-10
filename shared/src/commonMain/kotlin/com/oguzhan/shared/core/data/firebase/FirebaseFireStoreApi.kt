@@ -1,3 +1,4 @@
+/*
 package com.oguzhan.shared.core.data.firebase
 
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinFirebaseModel
@@ -81,3 +82,4 @@ class FirebaseFireStoreApi constructor(
 
 
 
+*/
