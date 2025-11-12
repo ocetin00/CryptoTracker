@@ -8,7 +8,7 @@ import com.oguzhan.shared.ui.screen.navigation.CtNavHost
 import org.koin.compose.KoinApplication
 
 @Composable
-actual fun PlatformApp() {
+actual fun PlatformApp(startDestination: Any) {
     KoinApplication(
         application = {
             modules(
@@ -18,7 +18,7 @@ actual fun PlatformApp() {
         },
         content = {
             val navController = rememberNavController()
-            CtNavHost(navController = navController)
+            CtNavHost(navController = navController, startDestination = startDestination)
         }
     )
 }

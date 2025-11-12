@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -30,18 +31,6 @@ kotlin {
             isStatic = true
         }
     }
-
-
-    /**
-     *
-     *
-     * rm -rf Pods Podfile.lock
-     * cd iosApp
-     * pod deintegrate
-     * pod repo update
-     * pod install
-     *
-     */
 
 
     sourceSets {
@@ -95,8 +84,10 @@ kotlin {
             dependencies {
                 implementation(libs.ktor.client.okhttp)
                 implementation(libs.koin.android)
-                //Firebase
-                //implementation(project.dependencies.platform(libs.firebase.bom))
+                implementation(libs.koin.androidx.workmanager)
+                implementation(libs.androidx.work.runtime.ktx)
+
+                implementation(libs.androidx.core.splashscreen)
             }
         }
 
@@ -140,6 +131,14 @@ android {
     }
     buildTypes {
         getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = false // Set to true if you want to remove unused resources
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
             isMinifyEnabled = false
         }
     }

@@ -86,6 +86,7 @@ val appModule = module {
     single { FirebaseFireStoreApi(Firebase.firestore, get()) }
 
 
+
     viewModelOf(::AuthViewModel)
     viewModelOf(::FavoriteViewModel)
     viewModelOf(::CryptoListScreenViewModel)

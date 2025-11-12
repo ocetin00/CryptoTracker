@@ -13,6 +13,13 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# ProGuard/R8
+**/mapping.txt
+**/seeds.txt
+**/usage.txt
+**/resources.txt
+**/outputs/mapping/
 /shared/build/classes/kotlin/iosSimulatorArm64/main/klib/shared/default/linkdata/package_com.oguzhan.shared/0_shared.knm
 /shared/build/classes/kotlin/iosSimulatorArm64/main/klib/shared/default/linkdata/package_com.oguzhan.shared/1_shared.knm
 /shared/build/classes/kotlin/iosSimulatorArm64/main/klib/shared/default/linkdata/package_com.oguzhan.shared/2_shared.knm

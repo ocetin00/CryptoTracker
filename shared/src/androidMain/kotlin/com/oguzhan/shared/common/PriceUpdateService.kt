@@ -10,7 +10,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.oguzhan.shared.core.domain.repository.CoinRepository
-import com.skydoves.sandwich.isSuccess
+import com.skydoves.sandwich.getOrThrow
 import java.util.concurrent.TimeUnit
 
 class PriceUpdateWorker constructor(
@@ -22,14 +22,8 @@ class PriceUpdateWorker constructor(
     override suspend fun doWork(): Result {
         return try {
             Log.d("PriceUpdateWorker", "doWork started")
-            val result = coinRepository.fetchAndStoreCoins().isSuccess
-            if (result) {
-                Log.d("PriceUpdateWorker", "Success: Data updated")
-                Result.success()
-            } else {
-                Log.d("PriceUpdateWorker", "Error: Data not updated")
-                Result.failure()
-            }
+            coinRepository.fetchAndStoreCoins().getOrThrow()
+            Result.success()
         } catch (e: Exception) {
             Log.e("PriceUpdateWorker", "Exception: ${e.message}")
             Result.failure()
@@ -39,7 +33,7 @@ class PriceUpdateWorker constructor(
 
 
 fun schedulePriceUpdates(context: Context) {
-    val workRequest = PeriodicWorkRequestBuilder<PriceUpdateWorker>(15, TimeUnit.MINUTES)
+    val workRequest = PeriodicWorkRequestBuilder<PriceUpdateWorker>(10000, TimeUnit.MILLISECONDS)
         .setConstraints(
             Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)

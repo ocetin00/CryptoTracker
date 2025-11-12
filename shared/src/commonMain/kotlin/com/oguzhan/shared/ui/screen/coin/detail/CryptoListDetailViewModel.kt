@@ -8,7 +8,7 @@ import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
 import com.oguzhan.shared.core.Result
 import com.oguzhan.shared.core.domain.usecase.GetCoinByIdUseCase
 import com.oguzhan.shared.core.domain.usecase.SetFavoriteCoinUseCase
-import com.oguzhan.shared.ui.screen.coin.CryptoListDetail
+import com.oguzhan.shared.ui.screen.navigation.CryptoListDetail
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow

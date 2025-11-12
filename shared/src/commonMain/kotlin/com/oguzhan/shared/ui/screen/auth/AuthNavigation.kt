@@ -5,19 +5,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.oguzhan.shared.ui.screen.coin.Main
-import kotlinx.serialization.Serializable
+import com.oguzhan.shared.ui.screen.navigation.Auth
+import com.oguzhan.shared.ui.screen.navigation.Login
+import com.oguzhan.shared.ui.screen.navigation.Main
+import com.oguzhan.shared.ui.screen.navigation.Register
 import org.koin.compose.viewmodel.koinViewModel
 
-//Parent Route for Auth
-@Serializable
-object Auth
 
-@Serializable
-object Login
-
-@Serializable
-object Register
 
 
 fun NavGraphBuilder.authNavGraph(navController: NavController) {
