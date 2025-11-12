@@ -34,6 +34,8 @@ class FirebaseFireStoreApi constructor(
         }.onSuccess {
             trySend(ApiResponse.Success(true))
         }
+
+        awaitClose()
     }
 
     fun removeFavoriteCoin(coinId: String) = callbackFlow<ApiResponse<Boolean>> {
@@ -78,6 +80,4 @@ class FirebaseFireStoreApi constructor(
         awaitClose()
     }
 }
-
-
 

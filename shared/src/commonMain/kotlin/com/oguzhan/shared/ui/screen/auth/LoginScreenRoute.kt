@@ -1,6 +1,5 @@
 package com.oguzhan.shared.ui.screen.auth
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +16,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,30 +28,38 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.input.key.Key.Companion.R
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.oguzhan.shared.core.data.firebase.FirebaseAuthApi
+import com.oguzhan.shared.core.data.repository.AuthRepositoryImpl
+import cryptotracker.shared.generated.resources.Res
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.auth.auth
 import kotlinx.coroutines.flow.collectLatest
+import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun LoginScreenRoute(
-    viewModel: AuthViewModel,
-    onNavigateSignUp: () -> Unit,
-    onNavigateToMain: () -> Unit
+    viewModel: AuthViewModel = koinViewModel<AuthViewModel>(),
+    onNavigateSignUp: () -> Unit = {},
+    onNavigateToMain: () -> Unit = {},
 ) {
     val state by viewModel.authState.collectAsState()
-    val context = LocalContext.current
+    //  val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.authEffect.collectLatest { effect ->
             when (effect) {
                 is AuthEffect.ShowSnackBar -> {
-                    Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    //  Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -125,6 +131,7 @@ fun LoginScreen(
                         )
                     }
                 }
+
             },
             isError = authState.passwordError != null,
             supportingText = { authState.passwordError?.let { Text(it, color = Color.Red) } }

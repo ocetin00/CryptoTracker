@@ -1,6 +1,5 @@
 package com.oguzhan.shared.ui.screen.auth
 
-import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.oguzhan.shared.core.Result
@@ -14,11 +13,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 data class AuthState(
-    val email: String = "",
-    val password: String = "",
+    val email: String = "testuser1213@gmail.com",
+    val password: String = "Oguzhan12345",
     val confirmPassword: String = "",
     val emailError: String? = null,
     val passwordError: String? = null,
@@ -33,7 +31,7 @@ sealed interface AuthEffect {
     data class ShowSnackBar(val message: String) : AuthEffect
 }
 
-class AuthViewModel @Inject constructor(
+class AuthViewModel constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
@@ -116,10 +114,10 @@ class AuthViewModel @Inject constructor(
         val state = _authState.value
         var isValid = true
 
-        if (state.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(state.email).matches()) {
+        /*      if (state.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(state.email).matches()) {
             _authState.update { it.copy(emailError = "Please enter a valid email") }
             isValid = false
-        }
+             }*/
 
         if (state.password.length < 6) {
             _authState.update { it.copy(passwordError = "Password must be at least 6 characters") }
@@ -146,3 +144,4 @@ class AuthViewModel @Inject constructor(
     }
 
 }
+

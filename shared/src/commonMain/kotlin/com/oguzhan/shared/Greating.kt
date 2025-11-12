@@ -1,11 +1,9 @@
 package com.oguzhan.shared
 
-
 class Greeting {
-    private val platform = platform()
+    private val platform = getPlatform()
 
     fun greet(): String {
-        return "Hello, ${platform}!"
-
+        return "Hello, ${platform.name}!"
     }
 }

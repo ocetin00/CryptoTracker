@@ -1,6 +1,5 @@
 package com.oguzhan.shared.ui.screen.auth
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,7 +28,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -44,14 +42,14 @@ fun RegisterScreenRoute(
     onBackToLoginClick: () -> Unit
 ) {
     val state by viewModel.authState.collectAsState()
-    val context = LocalContext.current
+    //  val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.authEffect.collectLatest { effect ->
             when (effect) {
                 is AuthEffect.ShowSnackBar -> {
-                    Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    //   Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -114,6 +112,7 @@ fun RegisterScreen(
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
+
                 val image =
                     if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 if (authState.password.isNotEmpty()) {
@@ -124,6 +123,7 @@ fun RegisterScreen(
                         )
                     }
                 }
+
             },
             isError = authState.passwordError != null,
             supportingText = { authState.passwordError?.let { Text(it, color = Color.Red) } }
@@ -138,6 +138,7 @@ fun RegisterScreen(
             visualTransformation = if (passwordConfirmationVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
+
                 val image =
                     if (passwordConfirmationVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 if (authState.confirmPassword.isNotEmpty()) {
@@ -150,7 +151,6 @@ fun RegisterScreen(
                         )
                     }
                 }
-
             },
             isError = authState.confirmPasswordError != null,
             supportingText = { authState.confirmPasswordError?.let { Text(it, color = Color.Red) } }

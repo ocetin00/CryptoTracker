@@ -5,19 +5,14 @@ import com.oguzhan.shared.core.data.remote.model.CoinRemoteModel
 import com.skydoves.sandwich.ApiResponse
 import com.skydoves.sandwich.ktor.getApiResponse
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.request.get
 import io.ktor.client.request.header
-import io.ktor.client.request.parameter
-import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 
 class CoinKtorApi(private val client: HttpClient) : CoinApi {
     override suspend fun getCoinById(coinId: String): ApiResponse<CoinDetailRemoteModel?> =
-        client.getApiResponse<CoinDetailRemoteModel?>(EndPoint.COIN_DETAIL) {
+        client.getApiResponse<CoinDetailRemoteModel?>("coins/$coinId") {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
-            parameter("id", coinId)
         }
 
 

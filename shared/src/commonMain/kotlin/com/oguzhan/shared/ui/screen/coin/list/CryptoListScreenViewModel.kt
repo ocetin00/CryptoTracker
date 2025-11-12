@@ -1,6 +1,5 @@
 package com.oguzhan.shared.ui.screen.coin.list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.oguzhan.shared.core.Result
@@ -17,7 +16,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 data class CryptoListScreenState(
     val query: String = "",
@@ -31,7 +29,7 @@ sealed interface CryptoListScreenEffect {
 }
 
 
-class CryptoListScreenViewModel @Inject constructor(
+class CryptoListScreenViewModel constructor(
     private val authRepository: AuthRepository,
     private val getCoinListUseCases: GetCoinListUseCases,
     private val searchCoinListUseCases: SearchCoinListUseCases,
@@ -56,24 +54,23 @@ class CryptoListScreenViewModel @Inject constructor(
             getCoinListUseCases().collectLatest {
                 when (val result = it) {
                     is Result.Loading -> {
-                        Log.d("CryptoListScreenViewModel", "Loading")
                         _state.update { it.copy(isLoading = true) }
                     }
 
                     is Result.Success -> {
+                        println("success: ${result.data}")
                         _state.update {
                             it.copy(
                                 isLoading = false,
                                 coinList = result.data
                             )
                         }
-                        Log.d("CryptoListScreenViewModel", "Success")
                     }
 
                     is Result.Error -> {
+                        println("error: ${result.message}")
                         _state.update { it.copy(isLoading = false) }
                         _effect.emit(CryptoListScreenEffect.ShowSnackBar(result.message ?: "Error"))
-                        Log.d("CryptoListScreenViewModel", "Error")
                     }
                 }
             }

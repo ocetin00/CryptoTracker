@@ -1,6 +1,5 @@
 package com.oguzhan.shared.ui.screen.coin.favourite
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.oguzhan.shared.core.Result
@@ -16,7 +15,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 data class FavoriteScreenState(
     val isLoading: Boolean = false,
@@ -27,7 +25,7 @@ sealed interface FavoriteScreenEffect {
     data class ShowToast(val message: String) : FavoriteScreenEffect
 }
 
-class FavoriteViewModel @Inject constructor(
+class FavoriteViewModel constructor(
     private val getFavoriteCoinListUseCase: GetFavoriteCoinListUseCase,
     private val setFavoriteCoinUseCase: SetFavoriteCoinUseCase
 ) : ViewModel() {
@@ -48,7 +46,6 @@ class FavoriteViewModel @Inject constructor(
                 when (result) {
                     is Result.Loading -> {
                         _state.update { it.copy(isLoading = true) }
-                        Log.d("FavoriteViewModel", "Loading")
                     }
 
                     is Result.Success -> {
@@ -58,13 +55,11 @@ class FavoriteViewModel @Inject constructor(
                                 favoriteCoins = result.data ?: listOf()
                             )
                         }
-                        Log.d("FavoriteViewModel", "Success: ${result.data}")
                     }
 
                     is Result.Error -> {
                         _state.update { it.copy(isLoading = false) }
                         _effect.emit(FavoriteScreenEffect.ShowToast(result.message ?: "Error"))
-                        Log.d("FavoriteViewModel", "Error: ${result.message}")
                     }
                 }
             }
@@ -81,7 +76,6 @@ class FavoriteViewModel @Inject constructor(
                         is Result.Success -> {
                             getFavoriteCoins()
                             _effect.emit(FavoriteScreenEffect.ShowToast("Removed Favorite"))
-                            Log.d("FavoriteViewModel", "Added successfully")
                         }
 
                         is Result.Error -> {
@@ -90,7 +84,6 @@ class FavoriteViewModel @Inject constructor(
                                     result.message ?: "Error"
                                 )
                             )
-                            Log.d("FavoriteViewModel", "Add Error: ${result.message}")
                         }
                     }
                 }

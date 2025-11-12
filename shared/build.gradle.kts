@@ -1,166 +1,151 @@
+import org.gradle.kotlin.dsl.invoke
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.room)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidApplication) // Changed from androidApplication
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.androidx.room)
 }
 
 kotlin {
-    // Target declarations - add or remove as needed below. These define
-    // which platforms this KMP module supports.
-    // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
-    androidLibrary {
-        namespace = "com.oguzhan.shared"
-        compileSdk = 36
-        minSdk = 28
 
-        withHostTestBuilder {
-        }
 
-        withDeviceTestBuilder {
-            sourceSetTreeName = "test"
-        }.configure {
-            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
-
-    // For iOS targets, this is also where you should
-    // configure native binary output. For more information, see:
-    // https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks
-
-    // A step-by-step guide on how to include this library in an XCode
-    // project can be found here:
-    // https://developer.android.com/kotlin/multiplatform/migrate
     val xcfName = "sharedKit"
 
-    iosX64 {
-        binaries.framework {
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
             baseName = xcfName
+            isStatic = true
         }
     }
 
-    iosArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
 
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    // Source set declarations.
-    // Declaring a target automatically creates a source set with the same name. By default, the
-    // Kotlin Gradle Plugin creates additional source sets that depend on each other, since it is
-    // common to share sources between related targets.
-    // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
-        commonMain {
+
+        val commonMain by getting {
             dependencies {
-                implementation(libs.kotlin.stdlib)
-                // implementation(libs.kotlinx.serialization.json)
-                // Add KMP dependencies here
-
-                //koin
-                implementation(project.dependencies.platform(libs.koin.bom))
-
-                implementation(libs.koin.compose)
-                implementation(libs.koin.compose.viewmodel)
-                implementation(libs.koin.compose.viewmodel.navigation)
-
-                implementation(libs.kotlinx.serialization.json)
-
-                //Room
-                implementation(libs.androidx.room.runtime)
-
-                //Kotlin
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.negotiation)
-                implementation(libs.kotlinx.coroutines.core)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
 
                 //Sandwich for network responses
                 implementation(libs.sandwich)
                 implementation(libs.sandwich.ktor)
 
-                //Firebase
-                implementation(project.dependencies.platform(libs.firebase.bom))
-                implementation("dev.gitlive:firebase-auth:2.1.0")
-                implementation("dev.gitlive:firebase-firestore:2.1.0")
+                implementation("dev.gitlive:firebase-auth:2.4.0")
+                implementation("dev.gitlive:firebase-firestore:2.4.0")
+
+                implementation(libs.androidx.room.runtime)
+                implementation(libs.androidx.sqlite.bundled)
+
+
+                //koin
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.compose)
+                implementation(libs.koin.compose.viewmodel)
+                implementation(libs.koin.compose.viewmodel.navigation)
+
+                implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.1")
+
+                //ktor
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.negotiation)
+                implementation(libs.ktor.serialization.json)
+                implementation(libs.ktor.xml)
+                implementation(libs.ktor.logging)
+                implementation(libs.kotlinx.serialization.json)
+
+                //coil
+                implementation(libs.coil.kt.compose)
+                implementation(libs.coil.network.okhttp)
+
+                implementation("org.jetbrains.compose.material:material-icons-extended:1.7.3")
+
             }
         }
 
-        commonTest {
+        val androidMain by getting {
             dependencies {
-
-                implementation(libs.kotlin.test)
-                implementation(libs.koin.test)
-
-            }
-        }
-
-        androidMain {
-            dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
-
-
+                implementation(libs.ktor.client.okhttp)
                 implementation(libs.koin.android)
                 implementation(libs.koin.androidx.workmanager)
-                implementation(libs.koin.androidx.compose)
-                implementation(libs.koin.androidx.navigation)
+                implementation(libs.androidx.work.runtime.ktx)
 
-                implementation(libs.androidx.room.paging)
-
-                //ktor
-                implementation(libs.ktor.client.okhttp)
-
-                //coroutines
-                implementation(libs.kotlinx.coroutines.android)
-
-
+                implementation(libs.androidx.core.splashscreen)
             }
         }
 
-        getByName("androidDeviceTest") {
+        val iosMain by creating {
             dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.junit)
-            }
-        }
-
-        iosMain {
-            dependencies {
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
-
-                //ktor
                 implementation(libs.ktor.client.darwin)
+            }
+        }
 
 
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
             }
         }
     }
-
 }
 
 dependencies {
     add("kspAndroid", libs.androidx.room.compiler)
     add("kspIosSimulatorArm64", libs.androidx.room.compiler)
-    add("kspIosX64", libs.androidx.room.compiler)
     add("kspIosArm64", libs.androidx.room.compiler)
-
-
+    // Add any other platform target you use in your project, for example kspDesktop
 }
 
+compose.experimental {}
 room {
     schemaDirectory("$projectDir/schemas")
 }
+android {
+    namespace = "com.oguzhan.cryptotracker"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = false // Set to true if you want to remove unused resources
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+

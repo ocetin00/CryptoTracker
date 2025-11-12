@@ -1,3 +1,9 @@
 package com.oguzhan.shared
 
-actual fun platform() = "iOS  23123"
+actual fun getPlatform(): Platform {
+    return object : Platform {
+        override val name: String
+            get() = "ios"
+    }
+}
+

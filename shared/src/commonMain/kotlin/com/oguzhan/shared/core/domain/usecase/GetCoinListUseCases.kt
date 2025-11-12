@@ -1,3 +1,4 @@
+
 package com.oguzhan.shared.core.domain.usecase
 
 import com.oguzhan.shared.core.domain.model.CoinUiModel
@@ -15,18 +16,15 @@ import kotlinx.coroutines.flow.onStart
 class GetCoinListUseCases constructor(
     private val coinRepository: CoinRepository,
 ) {
-    operator fun invoke(): Flow<Result<List<CoinUiModel>>> =
-        flow {
-            coinRepository.fetchAndStoreCoins()
-                .suspendMapSuccess {
-                    this?.mapNotNull { it?.toUiModel() }
-                }.suspendOnSuccess {
-                    val result = data
-                    emit(Result.Success(result ?: emptyList()))
-                }.suspendOnFailure {
-                    emit(Result.Error(message = message()))
-                }
-        }.onStart {
-            emit(Result.Loading)
-        }
+    operator fun invoke() = flow<Result<List<CoinUiModel>>> {
+        coinRepository.fetchAndStoreCoins()
+            .suspendMapSuccess {
+                this?.map { it.toUiModel() }
+            }.suspendOnSuccess {
+                val result: List<CoinUiModel>? = data
+                emit(Result.Success(result ?: emptyList()))
+            }.suspendOnFailure {
+                emit(Result.Error(message = message()))
+            }
+    }
 }
