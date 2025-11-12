@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.core.domain.usecase
 
 import com.oguzhan.shared.core.Result
@@ -27,4 +26,4 @@ class SetFavoriteCoinUseCase constructor(
                 }
         }
     }
-}*/
+}

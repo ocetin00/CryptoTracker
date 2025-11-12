@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.auth
 
 import androidx.compose.foundation.clickable
@@ -10,6 +9,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -40,14 +42,14 @@ fun RegisterScreenRoute(
     onBackToLoginClick: () -> Unit
 ) {
     val state by viewModel.authState.collectAsState()
-  //  val context = LocalContext.current
+    //  val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.authEffect.collectLatest { effect ->
             when (effect) {
                 is AuthEffect.ShowSnackBar -> {
-                 //   Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    //   Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -110,8 +112,8 @@ fun RegisterScreen(
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
-              */
-/*  val image =
+
+                val image =
                     if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 if (authState.password.isNotEmpty()) {
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
@@ -120,7 +122,7 @@ fun RegisterScreen(
                             contentDescription = if (passwordVisible) "Hide password" else "Show password"
                         )
                     }
-                }*//*
+                }
 
             },
             isError = authState.passwordError != null,
@@ -136,8 +138,8 @@ fun RegisterScreen(
             visualTransformation = if (passwordConfirmationVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
-               */
-/* val image =
+
+                val image =
                     if (passwordConfirmationVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 if (authState.confirmPassword.isNotEmpty()) {
                     IconButton(onClick = {
@@ -148,9 +150,7 @@ fun RegisterScreen(
                             contentDescription = if (passwordConfirmationVisible) "Hide password" else "Show password"
                         )
                     }
-                }*//*
-
-
+                }
             },
             isError = authState.confirmPasswordError != null,
             supportingText = { authState.confirmPasswordError?.let { Text(it, color = Color.Red) } }
@@ -180,4 +180,3 @@ fun RegisterScreen(
 }
 
 
-*/

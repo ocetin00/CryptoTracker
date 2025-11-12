@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.coin.favourite
 
 import androidx.lifecycle.ViewModel
@@ -94,4 +93,3 @@ class FavoriteViewModel constructor(
 
 }
 
-*/

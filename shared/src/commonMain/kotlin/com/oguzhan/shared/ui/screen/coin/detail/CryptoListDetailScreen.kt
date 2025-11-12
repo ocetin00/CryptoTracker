@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.coin.detail
 
 import androidx.compose.foundation.background
@@ -15,10 +14,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.ArrowDownward
+import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButtonDefaults.elevation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -38,33 +42,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.input.key.Key.Companion.R
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import com.google.accompanist.placeholder.material3.placeholder
-import com.oguzhan.cryptotracker.R
-import com.oguzhan.shared.core.domain.model.CoinDetailUiModel
+import coil3.compose.AsyncImage
+import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
+import com.oguzhan.shared.ui.util.placeholder
 import kotlinx.coroutines.flow.collectLatest
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CoinDetailScreenRoute(
     onNavigateToBack: () -> Unit,
     viewModel: CryptoListDetailViewModel
 ) {
     val state by viewModel.state.collectAsState()
-    val context = LocalContext.current
+    // val context = LocalContext.current
 
     LaunchedEffect(viewModel.effect) {
         viewModel.effect.collectLatest { effect ->
             when (effect) {
                 is CryptoListDetailScreenEffect.ShowToast -> {
-                    Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -135,6 +139,7 @@ fun CoinDetailScreen(
                 color = MaterialTheme.colorScheme.primary
             )
 
+
             // Coin Image
             AsyncImage(
                 model = state.coinDetailModel.imageUrl,
@@ -142,7 +147,6 @@ fun CoinDetailScreen(
                 modifier = Modifier
                     .size(100.dp)
                     .padding(top = 8.dp),
-                placeholder = painterResource(id = R.drawable.ic_launcher_foreground)
             )
 
             // Hashing Algorithm
@@ -307,14 +311,11 @@ fun CoinDetailShimmer(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .height(100.dp)
                 .clip(RoundedCornerShape(8.dp))
-                .background(Color.Gray.copy(alpha = 0.3f))
-                .placeholder(visible = true),
-            elevation = CardDefaults.cardElevation(4.dp),
+                .placeholder(visible = true)
+                .background(Color.Gray.copy(alpha = 0.3f)),
+            elevation = CardDefaults.cardElevation(4.dp)
+
+
         ) {}
     }
 }
-
-
-
-
-*/

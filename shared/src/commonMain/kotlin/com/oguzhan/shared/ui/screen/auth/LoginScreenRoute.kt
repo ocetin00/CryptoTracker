@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.auth
 
 import androidx.compose.foundation.clickable
@@ -10,12 +9,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,25 +35,31 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.oguzhan.shared.core.data.firebase.FirebaseAuthApi
+import com.oguzhan.shared.core.data.repository.AuthRepositoryImpl
 import cryptotracker.shared.generated.resources.Res
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.auth.auth
 import kotlinx.coroutines.flow.collectLatest
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun LoginScreenRoute(
-    viewModel: AuthViewModel,
-    onNavigateSignUp: () -> Unit,
-    onNavigateToMain: () -> Unit
+    viewModel: AuthViewModel = koinViewModel<AuthViewModel>(),
+    onNavigateSignUp: () -> Unit = {},
+    onNavigateToMain: () -> Unit = {},
 ) {
     val state by viewModel.authState.collectAsState()
-  //  val context = LocalContext.current
+    //  val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.authEffect.collectLatest { effect ->
             when (effect) {
                 is AuthEffect.ShowSnackBar -> {
-                  //  Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    //  Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -115,9 +121,8 @@ fun LoginScreen(
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
-                */
-/*val image =
-                    if (passwordVisible)  painterResource(Res.drawable.), null)// Icons.Filled.Visibility else Icons.Filled.VisibilityOff
+                val image =
+                    if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 if (authState.password.isNotEmpty()) {
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
                         Icon(
@@ -125,7 +130,7 @@ fun LoginScreen(
                             contentDescription = if (passwordVisible) "Hide password" else "Show password"
                         )
                     }
-                }*//*
+                }
 
             },
             isError = authState.passwordError != null,
@@ -154,4 +159,3 @@ fun LoginScreen(
         )
     }
 }
-*/

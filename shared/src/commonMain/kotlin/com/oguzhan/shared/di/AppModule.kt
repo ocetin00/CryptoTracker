@@ -1,18 +1,16 @@
 /*
-package com.oguzhan.cryptotracker.di
+package com.oguzhan.shared.di
 
 
-import android.content.Context
 import androidx.room.Room
-import androidx.work.WorkManager
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.firestore
-import com.oguzhan.cryptotracker.data.local.AppDatabase
-import com.oguzhan.cryptotracker.data.local.CoinDao
-import javax.inject.Singleton
+
+import com.oguzhan.shared.core.data.local.AppDatabase
+import com.oguzhan.shared.core.data.local.CoinDao
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.auth.FirebaseAuth
+import dev.gitlive.firebase.auth.auth
+import dev.gitlive.firebase.firestore.FirebaseFirestore
+import dev.gitlive.firebase.firestore.firestore
 
 
 @Module
@@ -52,4 +50,5 @@ object AppModule {
     @Singleton
     fun provideDevCtrlWorkManager(@ApplicationContext context: Context): WorkManager =
         WorkManager.getInstance(context)
-}*/
+}
+*/

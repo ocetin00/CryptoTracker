@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.auth
 
 import androidx.lifecycle.ViewModel
@@ -16,8 +15,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class AuthState(
-    val email: String = "",
-    val password: String = "",
+    val email: String = "testuser1213@gmail.com",
+    val password: String = "Oguzhan12345",
     val confirmPassword: String = "",
     val emailError: String? = null,
     val passwordError: String? = null,
@@ -115,10 +114,10 @@ class AuthViewModel constructor(
         val state = _authState.value
         var isValid = true
 
-        //  if (state.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(state.email).matches()) {
-        _authState.update { it.copy(emailError = "Please enter a valid email") }
-        isValid = false
-        //  }
+        /*      if (state.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(state.email).matches()) {
+            _authState.update { it.copy(emailError = "Please enter a valid email") }
+            isValid = false
+             }*/
 
         if (state.password.length < 6) {
             _authState.update { it.copy(passwordError = "Password must be at least 6 characters") }
@@ -145,4 +144,4 @@ class AuthViewModel constructor(
     }
 
 }
-*/
+

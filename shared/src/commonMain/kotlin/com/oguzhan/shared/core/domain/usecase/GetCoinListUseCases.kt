@@ -1,4 +1,4 @@
-/*
+
 package com.oguzhan.shared.core.domain.usecase
 
 import com.oguzhan.shared.core.domain.model.CoinUiModel
@@ -27,4 +27,4 @@ class GetCoinListUseCases constructor(
                 emit(Result.Error(message = message()))
             }
     }
-}*/
+}

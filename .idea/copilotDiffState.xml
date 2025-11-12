@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/shared/src/androidMain/kotlin/com/oguzhan/shared/core/data/local/Database.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/shared/src/androidMain/kotlin/com/oguzhan/shared/core/data/local/Database.kt" />
+              <option name="originalContent" value="package com.oguzhan.shared.core.data.local&#10;&#10;import android.content.Context&#10;import androidx.room.Room&#10;import org.koin.mp.KoinPlatform.getKoin&#10;&#10;actual fun getDatabaseBuilder(): AppDatabase {&#10;    val context = getKoin().get&lt;Context&gt;()&#10;    val dbFile = context.getDatabasePath(&quot;crypto_database.db&quot;)&#10;    return getRoomDatabase(&#10;        Room.databaseBuilder&lt;AppDatabase&gt;(&#10;            context = context,&#10;            name = dbFile.absolutePath&#10;        )&#10;    )&#10;}&#10;&#10;" />
+              <option name="updatedContent" value="package com.oguzhan.shared.core.data.local&#10;&#10;import android.content.Context&#10;import androidx.room.Room&#10;import org.koin.mp.KoinPlatform.getKoin&#10;&#10;actual fun getDatabaseBuilder(): AppDatabase {&#10;    val context = getKoin().get&lt;Context&gt;()&#10;    val dbFile = context.getDatabasePath(&quot;crypto_database.db&quot;)&#10;    return getRoomDatabase(&#10;        Room.databaseBuilder&lt;AppDatabase&gt;(&#10;            context = context,&#10;            name = dbFile.absolutePath&#10;        )&#10;    )&#10;}&#10;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/shared/src/commonMain/kotlin/com/oguzhan/shared/core/data/remote/model/CoinRemoteModel.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/shared/src/commonMain/kotlin/com/oguzhan/shared/core/data/remote/model/CoinRemoteModel.kt" />
+              <option name="originalContent" value="package com.oguzhan.shared.core.data.remote.model&#10;&#10;&#10;import kotlinx.serialization.SerialName&#10;import kotlinx.serialization.Serializable&#10;&#10;&#10;@Serializable&#10;data class CoinRemoteModel(&#10;    @SerialName(&quot;id&quot;)&#10;    val id: String,&#10;    @SerialName(&quot;symbol&quot;)&#10;    val symbol: String?,&#10;    @SerialName(&quot;name&quot;)&#10;    val name: String?&#10;)&#10;" />
+              <option name="updatedContent" value="package com.oguzhan.shared.core.data.remote.model&#10;&#10;&#10;import kotlinx.serialization.SerialName&#10;import kotlinx.serialization.Serializable&#10;&#10;&#10;@Serializable&#10;data class CoinRemoteModel(&#10;    @SerialName(&quot;id&quot;)&#10;    val id: String,&#10;    @SerialName(&quot;symbol&quot;)&#10;    val symbol: String?,&#10;    @SerialName(&quot;name&quot;)&#10;    val name: String?&#10;)&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

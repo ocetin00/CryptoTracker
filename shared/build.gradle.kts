@@ -3,13 +3,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
-   // alias(libs.plugins.google.services)
+    alias(libs.plugins.google.services)
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary) // Changed from androidApplication
+    alias(libs.plugins.androidApplication) // Changed from androidApplication
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.androidx.room)
-    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -33,28 +32,16 @@ kotlin {
     }
 
 
-   cocoapods {
-
-        version = "1.0"
-       summary = "Some description for a Kotlin/Native module"
-       homepage = "Link to a Kotlin/Native module homepage"
-       podfile = project.file("../CtIOS/Podfile")
-
-       framework {
-           // Required properties
-           // Framework name configuration. Use this property instead of deprecated 'frameworkName'
-           baseName = xcfName
-
-           // Optional properties
-           // Specify the framework linking type. It's dynamic by default.
-           isStatic = true
-           // Dependency export
-           // Uncomment and specify another project module if you have one:
-           // export(project(":<your other KMP module>"))
-           transitiveExport = false // This is default.
-       }
-
-    }
+    /**
+     *
+     *
+     * rm -rf Pods Podfile.lock
+     * cd iosApp
+     * pod deintegrate
+     * pod repo update
+     * pod install
+     *
+     */
 
 
     sourceSets {
@@ -72,13 +59,12 @@ kotlin {
                 implementation(libs.sandwich)
                 implementation(libs.sandwich.ktor)
 
-                //Firebase
-             //   implementation(project.dependencies.platform(libs.firebase.bom))
-               // implementation("dev.gitlive:firebase-auth:2.1.0")
-                //implementation("dev.gitlive:firebase-firestore:2.1.0")
+                implementation("dev.gitlive:firebase-auth:2.4.0")
+                implementation("dev.gitlive:firebase-firestore:2.4.0")
 
                 implementation(libs.androidx.room.runtime)
                 implementation(libs.androidx.sqlite.bundled)
+
 
                 //koin
                 implementation(project.dependencies.platform(libs.koin.bom))
@@ -86,26 +72,40 @@ kotlin {
                 implementation(libs.koin.compose.viewmodel)
                 implementation(libs.koin.compose.viewmodel.navigation)
 
+                implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.1")
+
                 //ktor
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.negotiation)
+                implementation(libs.ktor.serialization.json)
                 implementation(libs.ktor.xml)
                 implementation(libs.ktor.logging)
+                implementation(libs.kotlinx.serialization.json)
+
+                //coil
+                implementation(libs.coil.kt.compose)
+                implementation(libs.coil.network.okhttp)
+
+                implementation("org.jetbrains.compose.material:material-icons-extended:1.7.3")
+
             }
         }
 
         val androidMain by getting {
             dependencies {
                 implementation(libs.ktor.client.okhttp)
+                implementation(libs.koin.android)
+                //Firebase
+                //implementation(project.dependencies.platform(libs.firebase.bom))
             }
         }
 
         val iosMain by creating {
-            dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.darwin)
             }
         }
+
 
         val commonTest by getting {
             dependencies {
@@ -115,8 +115,17 @@ kotlin {
     }
 }
 
-compose.experimental {}
+dependencies {
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
+    // Add any other platform target you use in your project, for example kspDesktop
+}
 
+compose.experimental {}
+room {
+    schemaDirectory("$projectDir/schemas")
+}
 android {
     namespace = "com.oguzhan.cryptotracker"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -140,6 +149,4 @@ android {
     }
 }
 
-room {
-    schemaDirectory("$projectDir/schemas")
-}
+

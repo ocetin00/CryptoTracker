@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.ui.screen.auth
 
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -29,7 +28,7 @@ fun NavGraphBuilder.authNavGraph(navController: NavController) {
             val parentEntry = navController.getBackStackEntry<Auth>()
             //TODO: should be shared
             LoginScreenRoute(
-                viewModel =  viewModel { AuthViewModel() },
+                viewModel = koinViewModel(),
                 onNavigateSignUp = { navController.navigate(Register) },
                 onNavigateToMain = {
                     navController.navigate(Main) {
@@ -42,9 +41,9 @@ fun NavGraphBuilder.authNavGraph(navController: NavController) {
         composable<Register> {
             val parentEntry = navController.getBackStackEntry<Auth>()
             RegisterScreenRoute(
-                viewModel =koinViewModel(),
+                viewModel = koinViewModel(),
                 onBackToLoginClick = { navController.navigate(Login) }
             )
         }
     }
-}*/
+}

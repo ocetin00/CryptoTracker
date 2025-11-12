@@ -9,7 +9,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.oguzhan.cryptotracker.MainViewModel
 import com.oguzhan.shared.ui.App
 
-class MainActivity : ComponentActivity() {
+class   MainActivity : ComponentActivity() {
     //   private val viewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
 

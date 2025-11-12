@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.core.data.firebase
 
 import com.oguzhan.shared.core.Result
@@ -57,4 +56,3 @@ class FirebaseAuthApi constructor(private val firebaseAuth: FirebaseAuth) {
         return firebaseAuth.currentUser == null
     }
 }
-*/

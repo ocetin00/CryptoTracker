@@ -1,4 +1,3 @@
-/*
 package com.oguzhan.shared.core.domain.repository
 
 import com.oguzhan.shared.core.Result
@@ -10,4 +9,5 @@ interface AuthRepository {
     fun register(email: String, password: String): Flow<Result<FirebaseUser>>
     fun isLoggedIn(): Boolean
     suspend fun signOut(): Boolean
-}*/
+}
+

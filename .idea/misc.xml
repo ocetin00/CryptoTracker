@@ -6,4 +6,14 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="SwiftPackageManagerSettings">
+    <option name="linkedExternalProjectsSettings">
+      <SwiftPackageManagerProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/CryptoTrackerIOS" />
+      </SwiftPackageManagerProjectSettings>
+    </option>
+  </component>
+  <component name="SwiftPackageManagerWorkspace" PROJECT_DIR="$PROJECT_DIR$/CryptoTrackerIOS">
+    <contentRoot DIR="$PROJECT_DIR$" />
+  </component>
 </project>

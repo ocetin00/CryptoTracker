@@ -1,6 +1,6 @@
-/*
 package com.oguzhan.shared.ui.screen.coin
 
+import androidx.compose.material3.Text
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -9,9 +9,8 @@ import com.oguzhan.shared.ui.screen.auth.Auth
 import com.oguzhan.shared.ui.screen.coin.detail.CoinDetailScreenRoute
 import com.oguzhan.shared.ui.screen.coin.favourite.FavoriteScreenRoute
 import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenRoute
-import com.oguzhan.shared.ui.screen.coin.list.CryptoListScreenViewModel
 import kotlinx.serialization.Serializable
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 //Parent Route for Main
 @Serializable
@@ -44,10 +43,13 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
                     navController.navigate(FavoriteCoin)
                 },
                 onNavigateToAuth = {
-                    navController.navigate(Auth)
+                    navController.navigate(Auth) {
+                        popUpTo(0) { inclusive = true }
+                    }
                 }
             )
         }
+
         composable<CryptoListDetail> { backStackEntry ->
             CoinDetailScreenRoute(
                 onNavigateToBack = {
@@ -65,4 +67,5 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
             )
         }
     }
-}*/
+
+}
