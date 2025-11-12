@@ -52,7 +52,7 @@ val appModule = module {
             defaultRequest {
                 url(EndPoint.BASE_URL)
                 header(HttpHeaders.ContentType, ContentType.Application.Json)
-                header("x-cg-demo-api-key", "")
+                header("x-cg-demo-api-key", "CG-24STUw4CMoMhduH36TgTagAR")
             }
 
 

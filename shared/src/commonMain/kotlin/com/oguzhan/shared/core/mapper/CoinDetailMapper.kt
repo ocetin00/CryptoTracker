@@ -12,14 +12,19 @@ object CoinDetailMapper {
         description = description?.en ?: "N/A",
         imageUrl = image?.large ?: "",
         currentPrice = marketData?.currentPrice?.usd?.let { price ->
-          //  if (price < 0.01) String.format("%.8f USD", price)
-           // else String.format("%.2f USD", price)
-            "NA"
+            val formatted = if (price < 0.01) {
+                val rounded = (price * 100000000).toInt() / 100000000.0
+                "$rounded"
+            } else {
+                val rounded = (price * 100).toInt() / 100.0
+                "$rounded"
+            }
+            "$formatted USD"
         } ?: "N/A",
-        priceChange24h = marketData?.priceChangePercentage24hInCurrency?.usd.let { change ->
-            //"%.2f".format(change) ?: "N/A"
-            "N/A"
-        },
+        priceChange24h = marketData?.priceChangePercentage24hInCurrency?.usd?.let { change ->
+            val rounded = (change * 100).toInt() / 100.0
+            "$rounded"
+        } ?: "N/A",
         isPositive = marketData?.priceChangePercentage24hInCurrency?.usd?.let {
             it >= 0
         } ?: false)
