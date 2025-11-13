@@ -9,6 +9,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.work.WorkManager
 import com.oguzhan.cryptotracker.MainViewModel
+import com.oguzhan.cryptotracker.common.scheduleImmediatePriceUpdate
 import com.oguzhan.cryptotracker.common.schedulePriceUpdates
 import com.oguzhan.shared.ui.App
 import com.oguzhan.shared.ui.screen.navigation.Auth
@@ -29,7 +30,11 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
 
+        // Schedule periodic updates (every 15 minutes)
         schedulePriceUpdates(this)
+        
+        // For testing: Schedule an immediate update to see it working right away
+        scheduleImmediatePriceUpdate(this)
 
         setContent {
             val state = viewModel.mainState.collectAsStateWithLifecycle()
