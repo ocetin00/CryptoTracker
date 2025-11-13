@@ -33,7 +33,10 @@ class PriceUpdateWorker constructor(
 
 
 fun schedulePriceUpdates(context: Context) {
-    val workRequest = PeriodicWorkRequestBuilder<PriceUpdateWorker>(10000, TimeUnit.MILLISECONDS)
+    // Android requires minimum 15 minutes for PeriodicWorkRequest
+    val workRequest = PeriodicWorkRequestBuilder<PriceUpdateWorker>(
+        15, TimeUnit.MINUTES // Minimum interval for periodic work
+    )
         .setConstraints(
             Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -43,9 +46,36 @@ fun schedulePriceUpdates(context: Context) {
 
     WorkManager.getInstance(context).enqueueUniquePeriodicWork(
         "price_update_work",
-        ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+        ExistingPeriodicWorkPolicy.KEEP, // KEEP existing work instead of CANCEL_AND_REENQUEUE
         workRequest
     )
+
+    Log.d("PriceUpdateWorker", "Scheduled periodic price updates every 15 minutes")
+}
+
+/**
+ * For testing purposes - schedules a one-time immediate work request
+ * Use this for debugging/testing instead of waiting 15 minutes
+ */
+fun scheduleImmediatePriceUpdate(context: Context) {
+    val workRequest = androidx.work.OneTimeWorkRequestBuilder<PriceUpdateWorker>()
+        .setConstraints(
+            Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build()
+        )
+        .build()
+
+    WorkManager.getInstance(context).enqueue(workRequest)
+    Log.d("PriceUpdateWorker", "Scheduled immediate one-time price update")
+}
+
+/**
+ * Cancels all scheduled price update work
+ */
+fun cancelPriceUpdates(context: Context) {
+    WorkManager.getInstance(context).cancelUniqueWork("price_update_work")
+    Log.d("PriceUpdateWorker", "Cancelled all price update work")
 }
 
 

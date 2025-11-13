@@ -94,7 +94,7 @@
     public <init>(...);
 }
 -keep class androidx.work.** { *; }
--keep class com.oguzhan.cryptotracker.common.PriceUpdateWorker { *; }
+-keep class com.oguzhan.shared.common.PriceUpdateWorker { *; }
 
 # Keep ViewModels
 -keep class * extends androidx.lifecycle.ViewModel {
