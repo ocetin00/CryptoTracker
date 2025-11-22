@@ -15,8 +15,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class AuthState(
-    val email: String = "testuser1213@gmail.com",
-    val password: String = "Oguzhan12345",
+    val email: String = "",
+    val password: String = "",
     val confirmPassword: String = "",
     val emailError: String? = null,
     val passwordError: String? = null,

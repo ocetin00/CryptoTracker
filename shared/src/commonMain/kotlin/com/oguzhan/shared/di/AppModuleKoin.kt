@@ -17,6 +17,7 @@ import com.oguzhan.shared.core.domain.usecase.GetCoinListUseCases
 import com.oguzhan.shared.core.domain.usecase.GetFavoriteCoinListUseCase
 import com.oguzhan.shared.core.domain.usecase.SearchCoinListUseCases
 import com.oguzhan.shared.core.domain.usecase.SetFavoriteCoinUseCase
+import com.oguzhan.shared.core.util.COINGECKO_API_KEY
 import com.oguzhan.shared.ui.screen.auth.AuthViewModel
 import com.oguzhan.shared.ui.screen.coin.detail.CryptoListDetailViewModel
 import com.oguzhan.shared.ui.screen.coin.favourite.FavoriteViewModel
@@ -32,11 +33,9 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.header
 import io.ktor.http.ContentType
-import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.koin.core.module.Module
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
@@ -51,8 +50,7 @@ val appModule = module {
             // Her isteğe varsayılan olarak eklenecek header'lar için doğru blok
             defaultRequest {
                 url(EndPoint.BASE_URL)
-                header(HttpHeaders.ContentType, ContentType.Application.Json)
-                header("x-cg-demo-api-key", "CG-24STUw4CMoMhduH36TgTagAR")
+                header("x-cg-demo-api-key", "your coin gecko api key")
             }
 
 
@@ -107,6 +105,5 @@ val appModule = module {
         get<AppDatabase>().coinDao()
     }
 
+
 }
-
-
