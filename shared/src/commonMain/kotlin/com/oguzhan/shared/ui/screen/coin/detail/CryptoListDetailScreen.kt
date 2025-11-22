@@ -199,31 +199,33 @@ fun CoinDetailScreen(
                 }
             }
 
-            // Refresh Interval Input
-            OutlinedTextField(
-                value = refreshInterval,
-                onValueChange = { refreshInterval = it },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                label = { Text("Refresh Interval (seconds)") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 12.dp)
-            )
+            /*      // Refresh Interval Input
+                  OutlinedTextField(
+                      value = refreshInterval,
+                      onValueChange = { refreshInterval = it },
+                      keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                      label = { Text("Refresh Interval (seconds)") },
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .padding(vertical = 12.dp)
+                  )
 
-            // "Set Refresh Rate" Button
-            Button(
-                onClick = {
-                    val interval = refreshInterval.toIntOrNull() ?: 0
-                    if (interval > 0) {
-                        onSetRefreshRate(interval)
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 8.dp)
-            ) {
-                Text("Set Refresh Rate")
-            }
+                  // "Set Refresh Rate" Button
+                  Button(
+                      onClick = {
+                          val interval = refreshInterval.toIntOrNull() ?: 0
+                          if (interval > 0) {
+                              onSetRefreshRate(interval)
+                          }
+                      },
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .padding(bottom = 8.dp)
+                  ) {
+                      Text("Set Refresh Rate")
+                  }
+
+            */
 
             // Favorite Button
             Button(

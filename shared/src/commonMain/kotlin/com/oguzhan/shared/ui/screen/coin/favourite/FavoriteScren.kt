@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -28,10 +30,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinUiModel
 import kotlinx.coroutines.flow.collectLatest
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,10 +49,8 @@ fun FavoriteScreenRoute(
         viewModel.effect.collectLatest { effect ->
             when (effect) {
                 is FavoriteScreenEffect.ShowToast -> {
-                    //   Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                    // Show toast if needed
                 }
-
-                else -> {}
             }
         }
     }
@@ -66,16 +66,16 @@ fun FavoriteScreenRoute(
                     )
                 },
                 navigationIcon = {
-                    /* IconButton(onClick = onNavigateToBack) {
-                         Icon(
-                             Icons.Filled.ArrowBackIosNew,
-                             contentDescription = "Back",
-                             tint = MaterialTheme.colorScheme.onPrimary
-                         )
-                     }*/
+                    IconButton(onClick = onNavigateToBack) {
+                        Icon(
+                            Icons.Filled.ArrowBackIosNew,
+                            contentDescription = "Back",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
                 },
                 modifier = Modifier.fillMaxWidth(),
-                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary
                 )
             )
@@ -140,8 +140,9 @@ fun FavoriteCoinItem(
             IconButton(
                 onClick = { onRemoveFavorite(coin.coinId) }
             ) {
-                // Icon(Icons.Default.Delete, contentDescription = "Remove", tint = Color.Red)
+                // Remove icon implementation if needed
             }
         }
     }
 }
+
