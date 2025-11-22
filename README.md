@@ -126,10 +126,3 @@ or directly run from **Android Studio**.
 
 ---
 
-##  Things I Planned But Couldn't Implement 
-
-- **Notifications** for price alerts 
-- **String Res for hardcode strings**
-- **More UI/Unit test**
-- **Modularization**
-
