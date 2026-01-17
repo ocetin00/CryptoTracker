@@ -2,8 +2,8 @@ package com.oguzhan.shared.ui.screen.coin.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.oguzhan.shared.core.Result
-import com.oguzhan.shared.core.domain.model.CoinUiModel
+import com.oguzhan.shared.core.util.Result
+import com.oguzhan.shared.core.model.CoinUiModel
 import com.oguzhan.shared.core.domain.repository.AuthRepository
 import com.oguzhan.shared.core.domain.usecase.GetCoinListUseCases
 import com.oguzhan.shared.core.domain.usecase.SearchCoinListUseCases

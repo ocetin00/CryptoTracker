@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.domain.usecase
 
-import com.oguzhan.shared.core.domain.model.CoinUiModel
+import com.oguzhan.shared.core.model.CoinUiModel
 import com.oguzhan.shared.core.domain.repository.CoinRepository
 import com.oguzhan.shared.core.mapper.CoinMapper.toUiModel
 

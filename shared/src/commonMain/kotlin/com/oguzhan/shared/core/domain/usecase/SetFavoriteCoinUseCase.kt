@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.domain.usecase
 
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.domain.repository.CoinRepository
 import com.skydoves.sandwich.messageOrNull
 import com.skydoves.sandwich.suspendOnFailure

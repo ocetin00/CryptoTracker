@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.data.repository
 
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.data.firebase.FirebaseAuthApi
 import com.oguzhan.shared.core.domain.repository.AuthRepository
 import dev.gitlive.firebase.auth.FirebaseUser

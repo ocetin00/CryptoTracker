@@ -1,4 +1,4 @@
-package com.oguzhan.cryptotracker.domain.model
+package com.oguzhan.shared.core.model
 
 data class CoinDetailUiModel(
     val id: String,

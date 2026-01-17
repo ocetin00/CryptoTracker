@@ -34,7 +34,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.oguzhan.shared.core.domain.model.CoinUiModel
+import com.oguzhan.shared.core.model.CoinUiModel
 import kotlinx.coroutines.flow.collectLatest
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import androidx.compose.material.icons.Icons

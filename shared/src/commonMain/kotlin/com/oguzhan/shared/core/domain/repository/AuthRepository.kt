@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.domain.repository
 
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.util.Result
 import dev.gitlive.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 

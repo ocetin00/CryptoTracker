@@ -43,6 +43,7 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.components.resources)
                 implementation(compose.components.uiToolingPreview)
+                implementation(libs.androidx.navigation.compose)
 
                 //Sandwich for network responses
                 implementation(libs.sandwich)
@@ -61,7 +62,6 @@ kotlin {
                 implementation(libs.koin.compose.viewmodel)
                 implementation(libs.koin.compose.viewmodel.navigation)
 
-                implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.1")
 
                 //ktor
                 implementation(libs.ktor.client.core)

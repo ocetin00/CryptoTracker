@@ -1,7 +1,7 @@
 package com.oguzhan.shared.core.domain.usecase
 
-import com.oguzhan.cryptotracker.domain.model.FavoriteCoinMapper.toUiModel
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.model.FavoriteCoinMapper.toUiModel
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinUiModel
 import com.oguzhan.shared.core.domain.repository.CoinRepository
 import com.skydoves.sandwich.getOrNull

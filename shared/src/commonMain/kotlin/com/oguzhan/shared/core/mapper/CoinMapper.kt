@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.mapper
 
-import com.oguzhan.shared.core.domain.model.CoinUiModel
+import com.oguzhan.shared.core.model.CoinUiModel
 import com.oguzhan.shared.core.data.local.CoinEntity
 import com.oguzhan.shared.core.data.remote.model.CoinRemoteModel
 

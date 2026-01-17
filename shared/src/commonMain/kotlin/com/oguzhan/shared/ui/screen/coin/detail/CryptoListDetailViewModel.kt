@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.model.CoinDetailUiModel
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.domain.usecase.GetCoinByIdUseCase
 import com.oguzhan.shared.core.domain.usecase.SetFavoriteCoinUseCase
 import com.oguzhan.shared.ui.screen.navigation.CryptoListDetail

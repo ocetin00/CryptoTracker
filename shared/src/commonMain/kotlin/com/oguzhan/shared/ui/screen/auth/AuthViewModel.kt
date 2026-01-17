@@ -2,7 +2,7 @@ package com.oguzhan.shared.ui.screen.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,4 +1,4 @@
-package com.oguzhan.shared.core.domain.model
+package com.oguzhan.shared.core.model
 
 class CoinUiModel(
     val id: String,

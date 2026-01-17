@@ -12,8 +12,8 @@ import com.oguzhan.cryptotracker.MainViewModel
 import com.oguzhan.cryptotracker.common.scheduleImmediatePriceUpdate
 import com.oguzhan.cryptotracker.common.schedulePriceUpdates
 import com.oguzhan.shared.ui.App
-import com.oguzhan.shared.ui.screen.navigation.Auth
-import com.oguzhan.shared.ui.screen.navigation.Main
+import com.oguzhan.shared.ui.screen.navigation.CryptoList
+import com.oguzhan.shared.ui.screen.navigation.Login
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
             Log.d("MainActivity", "isLoggedIn: ${state.value.isLoggedIn}")
             state.value.isLoggedIn?.let {
                 if (state.value.isLoggedIn != null) {
-                    App(startDestination = if (state.value.isLoggedIn == true) Main else Auth)
+                    App(startDestination = if (state.value.isLoggedIn == true) CryptoList else Login)
                 }
             }
         }

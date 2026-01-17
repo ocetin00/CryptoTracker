@@ -1,10 +1,9 @@
 package com.oguzhan.shared.core.domain.usecase
 
-import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.model.CoinDetailUiModel
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.domain.repository.CoinRepository
 import com.oguzhan.shared.core.mapper.CoinDetailMapper.toUiModel
-import com.skydoves.sandwich.mapSuccess
 import com.skydoves.sandwich.message
 import com.skydoves.sandwich.suspendMapSuccess
 import com.skydoves.sandwich.suspendOnFailure

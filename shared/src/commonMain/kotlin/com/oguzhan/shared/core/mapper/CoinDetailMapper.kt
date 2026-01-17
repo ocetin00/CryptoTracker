@@ -1,6 +1,6 @@
 package com.oguzhan.shared.core.mapper
 
-import com.oguzhan.cryptotracker.domain.model.CoinDetailUiModel
+import com.oguzhan.shared.core.model.CoinDetailUiModel
 import com.oguzhan.shared.core.data.remote.model.CoinDetailRemoteModel
 
 object CoinDetailMapper {

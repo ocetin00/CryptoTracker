@@ -15,6 +15,3 @@ fun androidPlatformModule(context: Context): Module = module {
     workerOf(::PriceUpdateWorker)
 }
 
-actual fun platformModule(): Module {
-    TODO("Not yet implemented")
-}

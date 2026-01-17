@@ -50,7 +50,7 @@ val appModule = module {
             // Her isteğe varsayılan olarak eklenecek header'lar için doğru blok
             defaultRequest {
                 url(EndPoint.BASE_URL)
-                header("x-cg-demo-api-key", "your coin gecko api key")
+                header("x-cg-demo-api-key", "CG-24STUw4CMoMhduH36TgTagAR")
             }
 
 

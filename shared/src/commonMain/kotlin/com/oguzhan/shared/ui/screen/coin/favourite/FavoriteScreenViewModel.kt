@@ -2,7 +2,7 @@ package com.oguzhan.shared.ui.screen.coin.favourite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.oguzhan.shared.core.Result
+import com.oguzhan.shared.core.util.Result
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinUiModel
 import com.oguzhan.shared.core.domain.usecase.GetFavoriteCoinListUseCase
 import com.oguzhan.shared.core.domain.usecase.SetFavoriteCoinUseCase

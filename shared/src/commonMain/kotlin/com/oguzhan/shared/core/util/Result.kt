@@ -1,4 +1,4 @@
-package com.oguzhan.shared.core
+package com.oguzhan.shared.core.util
 
 sealed class Result<out T> {
     data class Success<out T>(val data: T) : Result<T>()

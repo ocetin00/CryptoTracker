@@ -1,4 +1,4 @@
-package com.oguzhan.cryptotracker.domain.model
+package com.oguzhan.shared.core.model
 
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinFirebaseModel
 import com.oguzhan.shared.core.data.remote.model.FavoriteCoinUiModel

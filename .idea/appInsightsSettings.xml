@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.oguzhan.cryptotracker" />
-                  <option name="mobileSdkAppId" value="1:12747455185:android:f12720c99a24a4b8eb63f0" />
-                  <option name="projectId" value="cryptotracker-4fa0b" />
-                  <option name="projectNumber" value="12747455185" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
